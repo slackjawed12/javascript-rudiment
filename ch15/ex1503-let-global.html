@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script>
+        var x = 1;
+        // 암묵적 전역
+        y = 2;
+        function foo(){}
+
+        // var 키워드 전역 변수는 window의 프로퍼티
+        console.log(window.x);
+        console.log(x);
+
+        // 암묵적 전역은 window의 프로퍼티
+        console.log(window.y);
+        console.log(y);
+
+        console.log(window.foo === foo);
+    </script>
+</body>
+
+</html>
