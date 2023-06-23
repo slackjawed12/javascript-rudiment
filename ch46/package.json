@@ -1,6 +1,6 @@
 {
+  "type": "module",
   "dependencies": {
-    "co": "^4.6.0",
     "fs": "^0.0.1-security",
     "lodash": "^4.17.21",
     "node-fetch": "^3.3.1"
