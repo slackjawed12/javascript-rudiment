@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      function foo(){
+        const x = 1;
+        // 곧바로 소멸하므로 일반적으로 클로저라고 하지 않음
+        function bar(){
+          debugger;
+          console.log(x);
+        }
+        bar();
+      }
+
+      foo();
+    </script>
+  </body>
+</html>

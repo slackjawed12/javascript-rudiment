@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      function foo(){
+        const x = 1;
+        const y = 2;
+        function bar(){
+          const z = 3;
+          // foo 소멸 이후 유지되지만, 상위 스코프 식별자를 참조하지 않으므로 클로저 아님
+          debugger;
+          console.log(z);
+        }
+
+        return bar;
+      }
+
+      const bar = foo();
+      bar();
+    </script>
+  </body>
+</html>
