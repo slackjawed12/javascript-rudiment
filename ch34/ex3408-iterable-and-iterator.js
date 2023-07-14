@@ -21,6 +21,11 @@ console.log(iterator.next());
 console.log(iterator.next());
 console.log(iterator.next());
 
+// 안 됨
+for (const a of iterable) {
+  console.log(a);
+}
+
 // 이터러블이면서 이터레이터인 객체를 생성해서 반환 : Symbol.iterator 호출하지 않아도 됨
 const fibonacciFuncV2 = function (max) {
   let [pre, cur] = [0, 1];
@@ -35,3 +40,8 @@ const fibonacciFuncV2 = function (max) {
     },
   };
 };
+
+const iterableV2 = fibonacciFuncV2(10);
+for (const b of iterableV2) {
+  console.log(b);
+}
