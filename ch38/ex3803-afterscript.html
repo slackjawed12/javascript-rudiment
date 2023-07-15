@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <ul>
+      <li id="apple">Apple</li>
+      <li id="banana">Banana</li>
+      <li id="orange">Orange</li>
+    </ul>
+    <!-- DOM api를 호출할 때 id가 apple인 HTML요소 취득 : 파싱 완료하여 DOM에 포함되어 있어 정상동작 -->
+    <script>
+      const $apple = document.getElementById('apple');
+
+      $apple.style.color='red';
+    </script>
+  </body>
+</html>
