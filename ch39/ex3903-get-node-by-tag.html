@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <li id="banana">Apple</li>
+    <li id="banana">Banana</li>
+    <li id="orange">Orange</li>
+    <script>
+      const $elems = document.getElementsByTagName('li');
+      [...$elems].forEach(elem =>{
+        elem.style.color = 'red';
+      })
+      // 모든 요소 취득
+      const $all = document.getElementsByTagName('*');
+      console.log($all);
+
+      const $liFromDocument = document.getElementsByTagName('li');
+      console.log($liFromDocument);
+
+    </script>
+  </body>
+</html>

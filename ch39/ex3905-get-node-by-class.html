@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <ul>
+      <li class="fruit apple">apple</li>
+      <li class="fruit banana">banana</li>
+      <li class="fruit orange">Orange</li>
+    </ul>
+    <div class="fruit banana">Banana</div>
+    <script>
+      const $elems = document.getElementsByClassName('fruit');
+      [...$elems].forEach(elem=>{elem.style.color='red';});
+
+      const $apples = document.getElementsByClassName('fruit apple');
+      [...$apples].forEach(elem=>{elem.style.color='blue';});
+
+      const $banana = document.getElementsByClassName('fruit banana');
+      console.log($banana);
+
+      const $bananasFromFruits = $elems.getElementsByClassName('fruit banana');
+      console.log($bananasFromFruits);
+    </script>
+  </body>
+</html>

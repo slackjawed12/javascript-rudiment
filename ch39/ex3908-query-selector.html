@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <ul>
+      <li class="apple">Apple</li>
+      <li class="banana">Banana</li>
+      <li class="banana">Banana Two</li>
+      <li class="orange">Orange</li>
+    </ul>
+    <script>
+      // class 어트리뷰트 값이 banana인 첫번째 요소
+      // getElementBy** 메서드들보다 느리지만, 일관된 방식으로 요소 노드를 취득할 수 있음
+      // id 어트리뷰트 요소 노드는 getElementById 메서드를 쓰고 그 외에는 querySelector 권장
+      const $elem = document.querySelector('.banana');
+      $elem.style.color='red';
+
+      const $elems = document.querySelectorAll('ul > li');
+      console.log($elems);
+      $elems.forEach(elem=>{
+        elem.style.color='blue';
+      })
+
+      const $all = document.querySelectorAll('*');
+      console.log($all);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <ul id="fruits">
+      <li class="apple">Apple</li>
+      <li class="banana">Banana</li>
+      <li class="orange">Orange</li>
+    </ul>
+  </body>
+  <script>
+    const $fruits = document.getElementById('fruits');
+    
+    console.log($fruits.hasChildNodes()); // 텍스트 노드 포함한 자식 노드의 존재 확인
+    console.log(!!$fruits.children.length); // 텍스트 노드가 아닌 노드의 존재 확인
+    console.log(!!$fruits.childElementCount); // 텍스트 노드가 아닌 노드 존재 확인 2
+    
+    console.log($fruits.childNodes);
+    console.log($fruits.children); // 요소 노드만 포함되어있음.
+    console.log($fruits.firstChild); // 첫번째 자식 노드 - 텍스트 노드이거나 요소 노드임.
+    console.log($fruits.lastChild);
+    console.log($fruits.firstElementChild);
+    console.log($fruits.lastElementChild);
+
+    const $banana = document.querySelector('.banana');
+    
+    console.log($banana.parentNode); // .banana 요소 노드의 부모 노드 탐색
+
+    /**
+     * 형제 노드 조회 
+     */
+    const firstChild = $fruits.firstChild;
+    console.log("firstChild", firstChild);
+
+    const {nextSibling} = firstChild;
+    console.log(nextSibling);
+
+    const {previousSibling} = nextSibling;
+    console.log(previousSibling);
+
+    const {firstElementChild} = $fruits;
+    console.log(firstElementChild);
+    // element~ 는 요소 노드만 탐색, 반환
+    const {nextElementSibling} = firstElementChild;
+    console.log(nextElementSibling);
+
+    const {previousElementSibling} = nextElementSibling;
+    console.log(previousElementSibling);
+  </script>
+</html>

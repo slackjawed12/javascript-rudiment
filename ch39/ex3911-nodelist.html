@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .red{color: red;}
+      .blue{color: blue;}
+      .green{color: green;}
+    </style>
+  </head>
+  <body>
+    <ul id="fruits">
+      <li>apple</li>
+      <li>Banana</li>
+      <li>Grape</li>
+    </ul>
+  </body>
+  <script>
+    // red 클래스에 해당하는 모든 노드가 blue로 변경됨.
+    // querySelectorAll 메서드는 NodeList 객체를 반환하고, 실시간으로 상태변경 반영하지 않음
+    const $elems = document.querySelectorAll('.red');
+    $elems.forEach(elem => elem.className = 'blue');
+    
+    const $fruits = document.getElementById('fruits');
+    // childeNodes 프로퍼티가 반환하는 NodeList 객체는 live 객체이다.
+    const {childNodes} = $fruits;
+    console.log(childNodes instanceof NodeList);
+
+    console.log(childNodes);
+
+    for(let i=0; i<childNodes.length; i++){
+      $fruits.removeChild(childNodes[i]);
+    }
+    // 결과 : 0, 2, 4, 6만 삭제됨. 삭제된 노드의 상태가 반영되기 때문
+    console.log(childNodes);
+
+    [...childNodes].forEach(childNode => {
+      $fruits.removeChild(childNode);
+    })
+    console.log(childNodes);
+  </script>
+</html>

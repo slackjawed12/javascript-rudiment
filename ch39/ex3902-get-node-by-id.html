@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <li id="banana">Apple</li>
+    <li id="banana">Banana</li>
+    <li id="orange">Orange</li>
+  </body>
+  <script>
+    const $elem = document.getElementById('banana');
+    const $notelem = document.getElementById('apple');
+    console.log($notelem);
+    console.log(orange === document.getElementById('orange'));
+    console.log(orange);
+    delete orange;
+    console.log(orange);
+    // const orange = 1;
+    // console.log(orange);
+    // 전역변수 선언하면 암묵적으로 노드객체 할당하지 않음
+    $elem.style.color = 'yellow';
+    $notelem.style.color='red';
+
+  </script>
+</html>

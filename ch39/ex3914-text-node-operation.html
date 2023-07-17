@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    #dev{
+      visibility: hidden;
+    }
+  </style>
+  <body>
+    <div id="foo">Hello <span>world!</span>
+      <p id="dev">i'm javascript developer!</p>
+    </div>
+    <div id="bar">good</div>
+  </body>
+  <script>
+    /**
+     * nodeValue, textContent : 요소 노드의 텍스트 조회 및 조작 
+     */
+    console.log(document.nodeValue);
+
+    // 요소 노드의 nodeValue 프로퍼티 참조 :값은 텍스트 노드의 텍스트를 의미함.
+    // 텍스트 노드가 아닌 노드의 nodeValue는 null값임
+    const $foo = document.getElementById('foo');
+    console.log($foo.nodeValue);
+
+    // 텍스트 노드의 nodeValue 프로퍼티 : 문자열이 나온다.
+    const $textNode = $foo.firstChild;
+    console.log("foo firstChild nodeValue:", $textNode.nodeValue);
+
+    $textNode.nodeValue = 'world';
+    console.log($textNode.nodeValue);
+    console.log($foo.firstChild.nextSibling.nodeValue); // span 태그의 텍스트에 접근 : 코드가 복잡해짐
+    $textNode.nodeValue='hello ';
+
+    console.log($foo.textContent);
+
+    const $bar = document.getElementById('bar');
+    console.log($bar.textContent);
+    console.log($bar.firstChild.nodeValue);
+    console.log($bar.textContent === $bar.firstChild.nodeValue); // 컨텐츠 영역에 텍스트만 있으면 nodeValue와 textContent는 같은 결과임
+    // 모든 자식 노드 제거하고 할당한 문자열이 텍스트로 추가됨
+    $foo.textContent = 'Hi <span>there!</span>'; // 마크업 파싱 안 됨
+
+    console.log("foo innerText : ", $foo.innerText); // css에 종속적인 논리를 따름. visibility가 hidden인 요소노드의 텍스트는 출력되지 않음
+  </script>
+</html>
