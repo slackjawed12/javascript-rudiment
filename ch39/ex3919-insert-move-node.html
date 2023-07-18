@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div>test</div>
+    <ul id="fruits">
+      <li>Apple</li>
+      <li>Banana</li>
+    </ul>
+  </body>
+  <script>
+    const $fruits = document.getElementById('fruits');
+    const $li = document.createElement('li');
+
+    $li.appendChild(document.createTextNode('Orange'));
+    // $li 요소 노드를 fruits 요소 노드의 마지막 자식 요소 앞에 삽입
+    // 두 번째 인수는 호출한 노드의 자식노드여야 함. 아니면 DOMException
+    $fruits.insertBefore($li, $fruits.lastElementChild);
+    // $fruits.insertBefore($li, document.querySelector('div')); // domexception
+    // null 이면 마지막 자식 노드로 추가
+    $fruits.insertBefore($li, null);
+
+    // 이미 존재하는 요소 노드를 할당해서 append하면 마지막 노드로 이동함
+    const [$apple, $banana] = $fruits.children;
+    $fruits.appendChild($apple);
+
+    // 마지막 자식 노드 앞으로 이동함
+    $fruits.insertBefore($banana, $fruits.lastElementChild);
+  </script>
+</html>

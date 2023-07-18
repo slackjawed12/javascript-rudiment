@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <ul id="fruits">
+      <li>Apple</li>
+    </ul>
+    <script>
+      const $fruits = document.getElementById('fruits');
+      const $apple = $fruits.firstElementChild;
+
+      // 인자 없으면 기본이 얕은복사
+      const $shallowClone = $apple.cloneNode();
+      console.log($shallowClone.childNodes);
+      $shallowClone.textContent = 'Banana';
+      $fruits.appendChild($shallowClone);
+
+      // 인자가 true이면 깊은복사
+      const $deepClone = $fruits.cloneNode(true);
+      console.log($deepClone.childNodes);
+      $fruits.appendChild($deepClone);
+    </script>
+  </body>
+</html>

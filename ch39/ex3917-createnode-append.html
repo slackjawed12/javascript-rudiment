@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <ul id="fruits">
+      <li>apple</li>
+    </ul>
+  </body>
+  <script>
+    const $fruits = document.getElementById('fruits');
+    // createElement : 요소 노드 생성
+    const $li = document.createElement('li');
+    // createTextNode : 텍스트 노드 생성 - 문자열 인수로 전달
+    const textNode = document.createTextNode('Banana');
+
+    // 텍스트 노드를 요소 노드의 자식 노드로 추가
+    $li.appendChild(textNode);
+    // 자식 노드가 없는 경우 간단한 할당식으로 처리 가능
+    // $li.textContent = 'banana'
+    // 요소 노드를 DOM에 추가
+    $fruits.appendChild($li);
+  </script>
+</html>

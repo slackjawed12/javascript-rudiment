@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id ="foo">
+      text
+    </div>
+  </body>
+  <script>
+    const $foo = document.getElementById('foo');
+    // insertAdjacentHTML : 기존 요소에는 영향 없음. 새로 삽입할 요소만 파싱해서 자식 요소로 추가
+    // html 마크업 문자열 파싱으로 인한 XSS 공격에는 동일하게 취약함
+    $foo.insertAdjacentHTML('beforebegin', '<p>beforebegin</p>');
+    $foo.insertAdjacentHTML('afterbegin', '<p>afterbegin</p>');
+    $foo.insertAdjacentHTML('beforeend', '<p>beforeend</p>');
+    $foo.insertAdjacentHTML('afterend', '<p>afterend</p>');
+  </script>
+</html>
