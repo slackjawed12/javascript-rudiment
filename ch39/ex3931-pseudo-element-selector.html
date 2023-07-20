@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .box {
+        background-color: ivory;
+      }
+      .box::before{
+        content: "hello"; 
+        width: 100px;
+        height: 30px;
+        color:white;
+        background-color:blue;
+      }
+      .box::after{
+        content:"world";
+        width: 100px;
+        height: 30px;
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">Box</div>
+    <script>
+      const $box = document.querySelector('.box');
+
+      const computedStyle = window.getComputedStyle($box, '::before');
+      console.log(computedStyle.content);
+    </script>
+  </body>
+</html>

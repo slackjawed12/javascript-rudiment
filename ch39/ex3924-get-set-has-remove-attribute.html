@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <input id="user" type="text" value="kim">
+    <script>
+      const $input = document.getElementById('user');
+
+      // value 어트리뷰트 초기값 취득
+      const inputValue = $input.getAttribute('value');
+      console.log(inputValue);
+
+      // value 어트리뷰트 초기값 변경
+      $input.setAttribute('value', 'foo');
+      console.log($input.getAttribute('value'));
+
+      console.log($input.hasAttribute('value'));
+
+      // value attribute 삭제
+      $input.removeAttribute('value');
+
+      console.log($input.hasAttribute('value'));
+    </script>
+  </body>
+</html>

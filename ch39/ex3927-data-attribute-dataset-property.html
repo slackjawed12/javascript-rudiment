@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <ul class="users">
+      <li id="1" data-user-id="3333" data-role="admin">Lee</li>
+      <li id="2" data-user-id="9999" data-role="subscriber">kim</li>
+      <li id="3" data-user-id="2323">Park</li>
+    </ul>
+    <script>
+      const users = [...document.querySelector('.users').children];
+
+      const user = users.find(user => user.dataset.userId === '9999');
+
+      console.log(user.dataset.role);
+
+      user.dataset.role = 'admin';
+      console.log(user.dataset);
+
+      const userTwo = users.find(user => user.dataset.userId ==='2323');
+
+      userTwo.dataset.role = 'subscriber';
+      // HTML 요소를 콘솔창에서 확인하면 kebab case로 어트리뷰트가 추가된 것을 확인할 수 있음
+      // data-role
+      console.log(userTwo.dataset);
+    </script>
+  </body>
+</html>

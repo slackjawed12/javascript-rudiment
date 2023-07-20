@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .box {
+        width: 100px; height: 100px;
+        background-color: antiquewhite;
+      }
+      .red {color:red;}
+      .blue {color:blue;}
+      .green{color:green;}
+    </style>
+  </head>
+  <body>
+    <div class="box red">hello world!</div>
+    <script>
+      const $box = document.querySelector('.box');
+
+      console.log($box.className);
+
+      $box.className = $box.className.replace('red', 'blue');
+
+      console.log($box.classList);
+
+      $box.classList.replace('blue', 'green');
+      // DOMTokenList 객체 메서드들
+      $box.classList.add('foo');
+      $box.classList.add('bar','baz');
+
+      $box.classList.remove('foo');
+      $box.classList.remove('bar', 'baz');
+      $box.classList.remove('x');
+
+      console.log($box.classList.item(0));
+      console.log($box.classList.item(1));
+
+      console.log($box.classList.contains('box'));
+      console.log($box.classList.contains('blue'));
+
+      // toggle : 일치하는 클래스 있으면 제거, 없으면 추가
+      $box.classList.toggle('foo');
+      $box.classList.toggle('foo');
+      // 두 번째 인수 boolean 조건식
+      $box.classList.toggle('bar', true);
+      $box.classList.toggle('bar', false);
+
+    </script>
+  </body>
+</html>

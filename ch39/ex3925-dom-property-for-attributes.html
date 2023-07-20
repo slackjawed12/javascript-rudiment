@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <input id="user" type="text" value="kim">
+    <script>
+      const $input = document.getElementById('user');
+      // dom property : 참조, 변경 가능 - 최신 상태를 관리함
+      $input.value = 'foo';
+
+      console.log($input.value);
+
+      $input.oninput = ()=>{
+        console.log('value 프로퍼티 값', $input.value);
+      };
+
+      console.log('value 어트리뷰트 값', $input.getAttribute('value'));
+
+      $input.id = 'changedId';
+
+      console.log($input.id);
+      console.log($input.getAttribute('id')); // id dom 프로퍼티가 변하면 어트리뷰트 값도 바뀜
+      // id는 사용자 입력과 관계가 없기 때문
+    </script>
+  </body>
+</html>
