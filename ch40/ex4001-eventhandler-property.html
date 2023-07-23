@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <button>
+      Click me!
+    </button>
+    <script>
+      const $button = document.querySelector('button');
+      $button.onclick = () => {console.log('button click1');};
+      // 첫번째로 바인딩된 핸들러는 재할당된 핸들러때문에 실행되지 않음
+      $button.onclick = () => {console.log('button click2');};
+    </script>
+  </body>
+</html>

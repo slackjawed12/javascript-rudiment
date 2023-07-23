@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      html, body {height: 100%;}
+    </style>
+  </head>
+  <!-- 이벤트 핸들러 어트리뷰트 방식은 첫 번째 인수 이름이 event여야 이벤트 객체를 전달받을 수 있음 -->
+  <body onclick="showCoords(event)">
+    <p> 클릭한 곳의 좌표</p>
+    <em class="message"></em>
+    <script>
+      const $msg = document.querySelector('.message');
+
+      function showCoords(e){
+        $msg.textContent = `clientX: ${e.clientX}, clientY: ${e.clientY}`
+      }
+    </script>
+  </body>
+</html>
