@@ -4,11 +4,12 @@
   <input type="text">
   <input type="checkbox">
   <button>click</button>
+  <em class="message">off</em>
   <script>
     const $input = document.querySelector('input[type=text]');
     const $checkbox = document.querySelector('input[type=checkbox]');
     const $button = document.querySelector('button');
-
+    
     window.onload = console.log;
 
     $checkbox.onchange = console.log;
@@ -18,6 +19,17 @@
     $input.onkeyup = console.log;
 
     $button.onclick = console.log;
+
+    const $msg = document.querySelector('.message');
+    $checkbox.onchange = e =>{
+      console.log(e);
+      console.log(Object.getPrototypeOf(e)===Event.prototype);
+      // e.currentTarget : 이벤트 핸들러가 바인딩된 DOM 요소
+      console.log(e.target === e.currentTarget);
+      // e.target : change 이벤트 발생시킨 DOM 요소 - $checkbox
+      // e.target.checked : 체크박스 요소의 현재 체크 상태
+      $msg.textContent = e.target.checked ? 'on' : 'off';
+    }
   </script>
 </body>
 </html>
