@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <a href="https://www.google.com">go</a>
+  <input type="checkbox">
+</body>
+<script>
+  document.querySelector('a').onclick = e=>{
+    console.log("a 요소의 기본 동작 중단");
+    e.preventDefault();
+  };
+
+  document.querySelector('input[type=checkbox]').onclick = e=>{
+    console.log("checkbox 요소의 기본 동작 중단");
+    e.preventDefault();
+  };
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div class="container">
+      <button class="btn1">Button 1</button>
+      <button class="btn2">Button 2</button>
+      <button class="btn3">Button 3</button>
+    </div>
+    <script>
+      // 하위 버튼 요소의 color 변경
+      // document.querySelector('.container').onclick = ({target})=>{
+      //   if(!target.matches('.container > button')) return;
+      //   target.style.color = 'red';
+      // };
+      const $container = document.querySelector('.container');
+      const $button2 = document.querySelector('.btn2');
+
+      $container.addEventListener('click', ({target})=>{
+        if(!target.matches('.container > button')) return;
+        target.style.color = 'red';
+        console.log("change color to red");
+      }, true)
+
+      $button2.addEventListener('click', e=>{
+        // 객체 자신이 바인딩된 핸들러만 실행되도록 함
+        e.stopPropagation();
+        e.target.style.color='blue';
+        console.log("change color to blue");
+      });
+      // 1 container가 bubbling phase만 캐치하는 경우
+      // 1-1 button2 클릭 + stopPropagation O : container 핸들러는 호출되지 않음
+      // 1-2 button2 클릭 + stopPropagation X : container 핸들러 호출됨, 버블링 캐치이므로 red가 나중에 발생
+      // 2 container가 capturing phase 캐치하는 경우
+      // 2-1 button2 클릭 + stopPropagation O : container 핸들러 호출 -> button 핸들러 호출
+      // 2-2 button2 클릭 + stopPropagation X : 2-1과 동일한 결과 
+    </script>
+  </body>
+</html>

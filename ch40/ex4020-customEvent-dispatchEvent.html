@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <button class="btn">click</button>
+    <button class="btncustom">click custom</button>
+    <script>
+      const customMouseEvent = new MouseEvent('click');
+      console.log("mouse customEvent type :", customMouseEvent.type);
+      console.log("mouse customEvent bubbles :", customMouseEvent.bubbles);
+      console.log("mouse customEvent cancelable :", customMouseEvent.cancelable);
+      console.log("isTrusted:", customMouseEvent.isTrusted);
+
+      // 커스텀 이벤트 객체는 디폴트가 버블링, preventDefault 불가
+      const customMouseEventV2 = new MouseEvent('click', {
+        bubbles:true,
+        cancelable:true,
+        clientX:50,
+        clientY:100
+      });
+
+      const customKeyboardEvent = new KeyboardEvent('keyup', {key:'Enter'});
+      console.log(customKeyboardEvent.key);
+
+      const $button = document.querySelector('.btn');
+
+      $button.addEventListener('click', e=>{
+        console.log("mouse custom event");
+        console.log(e);
+      });
+
+      // 커스텀 이벤트 디스패치 - click 이벤트 발생
+      // 동기처리 방식으로 호출 - 직접 호출과 동일함
+      $button.dispatchEvent(customMouseEvent);
+
+      // 기존 이벤트 타입이 아닌 임의의 이벤트 타입인 경우
+      // 이벤트 타입으로 임의의 문자열 지정 가능 - CustomEvent일 때
+      // detail 프로퍼티를 포함해서 전달
+      const customEvent = new CustomEvent('foo', {
+        detail: {
+          message: 'hello'
+        }
+      });
+
+      console.log(customEvent.type);
+
+      const $buttonCustom = document.querySelector('.btncustom');
+      // 기존 이벤트타입이 아니면 addEventListener만 사용 가능함. on + 새로운 이벤트 타입 어트리뷰트, 프로퍼티가 없기 때문
+      $buttonCustom.addEventListener('foo', e=>{
+        console.log("custom event")
+        console.log(e);
+      })
+
+      $buttonCustom.dispatchEvent(customEvent);
+    </script>
+  </body>
+</html>
