@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <input type="text">
+    <div class="msg"></div>
+    <script>
+      const $input = document.querySelector('input');
+      const $msg = document.querySelector('.msg');
+
+      const debounce = (callback, delay) =>{
+        let timerId;
+        // debounce 함수는 timerId를 기억하는 클로저를 반환
+        return (...args)=>{
+          // timerId가 falsy가 아니면 delay 간격 이전에 타이머가 있다는 것
+          // 있으면 이전 타이머를 삭제하고 새 타이머 설정
+          // 이러면 새 타이머가 등록되고, delay 이후에 콜백이 호출될때까지 아무 일도 발생하지 않음 
+          if(timerId) clearTimeout(timerId);
+          timerId = setTimeout(callback, delay, ...args);
+        };
+      };
+
+      $input.oninput = debounce(e=>{
+        $msg.textContent = e.target.value;
+      },300);
+    </script>
+  </body>
+</html>
