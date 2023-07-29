@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      const xhr = new XMLHttpRequest();
+
+      // xhr.open('GET', '/users');
+      xhr.open('GET', 'https://jsonplaceholder.typicode.com/todos/1');
+
+      xhr.setRequestHeader('content-type', 'application/json');
+
+      xhr.send();
+
+      xhr.onreadystatechange = () =>{
+        console.log(xhr.readyState); // 2, 3, 4가 차례로 출력됨
+        if(xhr.readyState !==XMLHttpRequest.DONE)
+          return;
+        
+        if(xhr.status === 200){
+          console.log(JSON.parse(xhr.response));
+        } else {
+          console.error('Error', xhr.status, xhr.statusText);
+        }
+      };
+      // onload : HTTP 요청이 완료된 경우 발생 - DONE 확인 필요없음
+      xhr.onload = ()=>{
+        if(xhr.status === 200){
+          console.log(JSON.parse(xhr.response));
+        } else {
+          console.error('Error', xhr.status, xhr.statusText);
+        }
+      }
+    </script>
+  </head>
+</html>
